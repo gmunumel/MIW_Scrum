@@ -29,5 +29,7 @@ namespace RestRoomApp.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<RestRoomApp.Models.Cliente> Clientes { get; set; }
     }
 }
