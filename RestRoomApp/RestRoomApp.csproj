@@ -190,7 +190,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\HabitacionesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ReservasController.cs" />
@@ -199,15 +198,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201804210659384_InitialCreate.cs" />
-    <Compile Include="Migrations\201804210659384_InitialCreate.Designer.cs">
-      <DependentUpon>201804210659384_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804210744281_Inicial.cs" />
-    <Compile Include="Migrations\201804210744281_Inicial.Designer.cs">
-      <DependentUpon>201804210744281_Inicial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Habitacion.cs" />
@@ -220,10 +210,34 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\booking.gif" />
+    <Content Include="Images\carousel2.png" />
+    <Content Include="Images\carousel3.png" />
+    <Content Include="Images\clients.gif" />
+    <Content Include="Images\frame1.PNG" />
+    <Content Include="Images\frame2.PNG" />
+    <Content Include="Images\frame3.PNG" />
+    <Content Include="Images\frame4.PNG" />
+    <Content Include="Images\frame5.PNG" />
+    <Content Include="Images\frame6.PNG" />
+    <Content Include="Images\hotel_logo.png" />
+    <Content Include="Images\kanban.gif" />
+    <Content Include="Images\carousel1.png" />
+    <Content Include="Images\rooms.gif" />
+    <Content Include="Images\scrum.jpg" />
+    <Content Include="Images\scrum2.jpg" />
+    <Content Include="Images\tdd.png" />
+    <Content Include="Images\the-team.gif" />
+    <Content Include="Images\user-stories.jpg" />
+    <Content Include="Images\user-story.jpg" />
+    <Content Include="Images\xp.gif" />
+    <Content Include="Images\xurcielagon.png" />
+    <Content Include="Scripts\animation.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -302,14 +316,6 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201804210659384_InitialCreate.resx">
-      <DependentUpon>201804210659384_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804210744281_Inicial.resx">
-      <DependentUpon>201804210744281_Inicial.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
