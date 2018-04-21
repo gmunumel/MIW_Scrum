@@ -8,7 +8,8 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-
+    <br />
+    <br />
     <div class="form-horizontal">
 
         <hr />
@@ -55,15 +56,12 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="hacerReserva" class="btn btn-default" />
+                <input type="submit" value="Reservar" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
