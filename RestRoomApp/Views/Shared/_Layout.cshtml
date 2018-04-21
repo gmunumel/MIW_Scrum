@@ -4,60 +4,37 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Máster Ingeniería Web</title>
+    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
-<body id='myPage' data-spy='scroll' data-target='.navbar' data-offset='60'>
-    <nav class="navbar navbar-default navbar-fixed-top">
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/"><img src="~/Images/hotel_logo.png" alt="MIW-MDW" height="32px"></a>
-
+                @Html.ActionLink("Nombre de aplicación", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
+            <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a class='navbar-brand' href="/" target='_top'><strong><span class='glyphicon glyphicon-home'></span> Inicio</strong></a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Metodologías Ligeras <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a class="btn btn-lg btn-info btn-block" href="#scrum" target='_top'>Scrum</a></li>
-                            <li><a class="btn btn-lg btn-info btn-block" href="#user-story" target='_top'>Historias de usuario</a></li>
-                            <li><a class="btn btn-lg btn-info btn-block" href="#kanban" target='_top'>Kanban</a></li>
-                            <li><a class="btn btn-lg btn-info btn-block" href="#tdd" target='_top'>Test-driven development (TDD)</a></li>
-                            <li><a class="btn btn-lg btn-info btn-block" href="#xp" target='_top'>eXtreme Programming</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="navbar-brand" href="/#about" target='_top'><span class='glyphicon glyphicon-info-sign'></span> Acerca de&nbsp;</a></li>
-                    <li><a class='navbar-brand' href="/#contact" target='_top'><span class='glyphicon glyphicon-envelope'></span> Concactar</a></li>
-
+                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
-    </nav>
-
+    </div>
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <!-- FOOTER -->
-        <footer role="contentinfo" class="container-fluid text-center">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <a href="/#myPage" title="Subir"><span class="glyphicon glyphicon-chevron-up"></span> </a>
-                        <p>&copy; @DateTime.Now.Year - Máster Ingeniería Web &middot;- Metodologias Ligeras de Desarrollo Web - <img src="~/Images/xurcielagon.png" class="img-circle" alt="Xurcielagon" width="30" height="30"> Xurcielagon </p>
-                    </div>
-                </div>
-            </div>
-
-
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
         </footer>
     </div>
 
