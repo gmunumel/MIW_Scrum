@@ -218,6 +218,12 @@
     <Content Include="Images\carousel2.png" />
     <Content Include="Images\carousel3.png" />
     <Content Include="Images\clients.gif" />
+    <Content Include="Images\frame1.PNG" />
+    <Content Include="Images\frame2.PNG" />
+    <Content Include="Images\frame3.PNG" />
+    <Content Include="Images\frame4.PNG" />
+    <Content Include="Images\frame5.PNG" />
+    <Content Include="Images\frame6.PNG" />
     <Content Include="Images\hotel_logo.png" />
     <Content Include="Images\kanban.gif" />
     <Content Include="Images\carousel1.png" />
