@@ -7,6 +7,7 @@ namespace RestRoomApp.Models
     public class Habitacion
     {
         public int HabitacionId { get; set; }
+        public string Nombre { get; set; }
         public string Numero { get; set; }
         public string Planta { get; set; }
         public int Camas { get; set; }
