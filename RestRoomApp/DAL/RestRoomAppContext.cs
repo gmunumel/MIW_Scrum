@@ -14,6 +14,8 @@ namespace RestRoomApp.DAL
         public DbSet<Reserva> Reservaciones { get; set; }
         public DbSet<Habitacion> Habitaciones { get; set; }
 
+        public DbSet<Administrador> Administradors { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
