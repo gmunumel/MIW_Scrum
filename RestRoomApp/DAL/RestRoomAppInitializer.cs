@@ -36,6 +36,13 @@ namespace RestRoomApp.DAL
             };
             reservas.ForEach(s => context.Reservaciones.Add(s));
             context.SaveChanges();
+
+            var administradores = new List<Administrador>
+            {
+                new Administrador{Nombre="admin",Apellido="first",Correo="firstadmin@gmail.com"},
+            };
+            administradores.ForEach(s => context.Administradors.Add(s));
+            context.SaveChanges();
         }
     }
 }

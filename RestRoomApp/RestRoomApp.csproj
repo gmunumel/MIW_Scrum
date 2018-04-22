@@ -190,6 +190,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdministradorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ReservasController.cs" />
@@ -199,6 +200,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Administrador.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Habitacion.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -216,6 +218,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\admin.png" />
     <Content Include="Images\booking.gif" />
     <Content Include="Images\carousel2.png" />
     <Content Include="Images\carousel3.png" />
