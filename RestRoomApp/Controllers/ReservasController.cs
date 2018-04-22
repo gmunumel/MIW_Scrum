@@ -21,7 +21,7 @@ namespace RestRoomApp.Controllers
             return (repetido.Count() != 0);
         }
         // GET: Reservas
-        public ActionResult Index()
+        public ActionResult Vertodos()
         {
             var reservaciones = db.Reservaciones.Include(r => r.Cliente).Include(r => r.Habitacion);
             return View(reservaciones.ToList());

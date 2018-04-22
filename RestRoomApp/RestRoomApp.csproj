@@ -300,7 +300,7 @@
     <Content Include="Views\Reservas\Delete.cshtml" />
     <Content Include="Views\Reservas\Details.cshtml" />
     <Content Include="Views\Reservas\Edit.cshtml" />
-    <Content Include="Views\Reservas\Index.cshtml" />
+    <Content Include="Views\Reservas\Vertodos.cshtml" />
     <Content Include="Views\Index.cshtml" />
     <Content Include="Views\Reservas\Reservascliente.cshtml" />
   </ItemGroup>
