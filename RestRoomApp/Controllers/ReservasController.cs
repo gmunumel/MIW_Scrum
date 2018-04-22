@@ -15,6 +15,11 @@ namespace RestRoomApp.Controllers
     {
         private RestRoomAppContext db = new RestRoomAppContext();
 
+        private Boolean repetidaFechayhora (Reserva reserva)
+        {
+            var repetido = db.Reservaciones.Where( r => r.FechaReservacion == reserva.FechaReservacion && r.HoraInicioReservacion == reserva.HoraInicioReservacion);
+            return (repetido.Count() != 0);
+        }
         // GET: Reservas
         public ActionResult Index()
         {
@@ -66,10 +71,16 @@ namespace RestRoomApp.Controllers
                         HoraInicioReservacion = reservadto.HoraInicioReservacion,
                         FechaReservacion = reservadto.FechaReservacion
                     };
-                    db.Reservaciones.Add(reserva);
-                    db.SaveChanges();
 
-                    return RedirectToAction("Reservascliente", new { id = reserva.ClienteID }); //return View("Reservascliente", reservaciones.ToList());
+                    if (!repetidaFechayhora(reserva))
+                    {
+                        db.Reservaciones.Add(reserva);
+                        db.SaveChanges();
+                        return RedirectToAction("Reservascliente", new { id = reserva.ClienteID }); //return View("Reservascliente", reservaciones.ToList());
+                    } else
+                    {
+                        ViewBag.error = "La fecha y hora reservada coincide con otra";
+                    }
                 } else
                 {
                     ViewBag.error = "Este correo no se corresponde con ningún cliente registrado.";
