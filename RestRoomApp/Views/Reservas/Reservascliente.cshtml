@@ -1,0 +1,57 @@
+﻿@model IEnumerable<RestRoomApp.Models.Reserva>
+<br />
+<br />
+
+@{
+    ViewBag.Title = "Reservar realizadas " 
+    ;}
+
+<h2>Estas son tus reservas... </h2>
+
+<p>
+    @Html.ActionLink("Volver", "Index", "Home")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cliente.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Habitacion.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HorasReservacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HoraInicioReservacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaReservacion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cliente.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Habitacion.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HorasReservacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoraInicioReservacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaReservacion)
+        </td>
+        <td>
+            @Html.ActionLink("Cancelar", "Delete", new { id=item.ReservaID })
+        </td>
+    </tr>
+}
+
+</table>
