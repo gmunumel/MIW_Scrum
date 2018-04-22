@@ -56,7 +56,8 @@ namespace RestRoomApp.Controllers
             {
                 db.Reservaciones.Add(reserva);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                var reservaciones = db.Reservaciones.Include(r => r.Cliente).Include(r => r.Habitacion).Where(r => r.ClienteID == reserva.ClienteID);
+                return View("Reservascliente", reservaciones.ToList());
             }
 
             ViewBag.ClienteID = new SelectList(db.Clientes, "ID", "Nombre", reserva.ClienteID);
@@ -102,27 +103,12 @@ namespace RestRoomApp.Controllers
         // GET: Reservas/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Reserva reserva = db.Reservaciones.Find(id);
-            if (reserva == null)
-            {
-                return HttpNotFound();
-            }
-            return View(reserva);
-        }
-
-        // POST: Reservas/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
             Reserva reserva = db.Reservaciones.Find(id);
             db.Reservaciones.Remove(reserva);
             db.SaveChanges();
-            return RedirectToAction("Index");
+
+            var reservaciones = db.Reservaciones.Include(r => r.Cliente).Include(r => r.Habitacion).Where(r => r.ClienteID == reserva.ClienteID);
+            return View("Reservascliente", reservaciones.ToList());
         }
 
         protected override void Dispose(bool disposing)
