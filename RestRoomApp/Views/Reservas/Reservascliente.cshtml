@@ -17,6 +17,9 @@
             @Html.DisplayNameFor(model => model.Cliente.Nombre)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Cliente.Correo)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Habitacion.Nombre)
         </th>
         <th>
@@ -33,9 +36,12 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
+        <th>
             @Html.DisplayFor(modelItem => item.Cliente.Nombre)
-        </td>
+        </th>
+        <th>
+            @Html.DisplayFor(modelItem => item.Cliente.Correo)
+        </th>
         <td>
             @Html.DisplayFor(modelItem => item.Habitacion.Nombre)
         </td>
@@ -49,7 +55,7 @@
             @Html.DisplayFor(modelItem => item.FechaReservacion)
         </td>
         <td>
-            @Html.ActionLink("Cancelar", "Delete", new { id=item.ReservaID })
+            @Html.ActionLink("Cancelar", "Delete", new { id = item.ReservaID })
         </td>
     </tr>
 }

@@ -1,4 +1,4 @@
-﻿@model RestRoomApp.Models.Reserva
+﻿@model RestRoomApp.Models.Reservadto
 
 @{
     ViewBag.Title = "Hacer Reserva";
@@ -16,10 +16,10 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.ClienteID, "Identificador del Cliente:", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Correo, "Correo del Cliente:", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ClienteID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ClienteID, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Correo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Correo, "", new { @class = "text-danger" })
             </div>
         </div>
 

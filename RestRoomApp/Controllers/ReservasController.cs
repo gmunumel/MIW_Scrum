@@ -50,19 +50,42 @@ namespace RestRoomApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ReservaID,ClienteID,HabitacionID,HorasReservacion,HoraInicioReservacion,FechaReservacion")] Reserva reserva)
+        public ActionResult Create(Reservadto reservadto)
         {
+            ViewBag.error = "";
             if (ModelState.IsValid)
             {
-                db.Reservaciones.Add(reserva);
-                db.SaveChanges();
-                var reservaciones = db.Reservaciones.Include(r => r.Cliente).Include(r => r.Habitacion).Where(r => r.ClienteID == reserva.ClienteID);
-                return View("Reservascliente", reservaciones.ToList());
+                var cliente = db.Clientes.Where(r => r.Correo == reservadto.Correo);
+                if (cliente.Count() != 0)
+                {
+                    Reserva reserva = new Reserva
+                    {
+                        ClienteID = cliente.ToList().First().ID,
+                        HabitacionID = reservadto.HabitacionID,
+                        HorasReservacion = reservadto.HorasReservacion,
+                        HoraInicioReservacion = reservadto.HoraInicioReservacion,
+                        FechaReservacion = reservadto.FechaReservacion
+                    };
+                    db.Reservaciones.Add(reserva);
+                    db.SaveChanges();
+
+                    return RedirectToAction("Reservascliente", new { id = reserva.ClienteID }); //return View("Reservascliente", reservaciones.ToList());
+                } else
+                {
+                    ViewBag.error = "Este correo no se corresponde con ningún cliente registrado.";
+                }
             }
 
-            ViewBag.ClienteID = new SelectList(db.Clientes, "ID", "Nombre", reserva.ClienteID);
-            ViewBag.HabitacionID = new SelectList(db.Habitaciones, "HabitacionId", "Nombre", reserva.HabitacionID);
-            return View(reserva);
+            //ViewBag.ClienteID = new SelectList(db.Clientes, "ID", "Nombre", reserva.ClienteID);
+            ViewBag.HabitacionID = new SelectList(db.Habitaciones, "HabitacionId", "Nombre");
+            return View(reservadto);
+        }
+
+        // GET: Reservas
+        public ActionResult Reservascliente (int? id)
+        {
+            var reservaciones = db.Reservaciones.Include(r => r.Cliente).Include(r => r.Habitacion).Where(r => r.ClienteID == id);
+            return View(reservaciones.ToList());
         }
 
         // GET: Reservas/Edit/5
