@@ -259,3 +259,6 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/RestRoomApp/App_Start/WebApiConfig.cs
+/RestRoomApp/Migrations/201804221522290_Inicial.cs
+/RestRoomApp/Migrations

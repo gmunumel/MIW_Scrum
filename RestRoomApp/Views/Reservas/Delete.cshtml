@@ -1,0 +1,64 @@
+﻿@model RestRoomApp.Models.Reserva
+
+@{
+    ViewBag.Title = "Borrar";
+}
+
+<h2>Delete</h2>
+
+<h3>¿Quieres borrar esta reservar?</h3>
+<div>
+    <h4>Reserva</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Cliente.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cliente.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Habitacion.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Habitacion.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HorasReservacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HorasReservacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HoraInicioReservacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoraInicioReservacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaReservacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaReservacion)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Volver", "Reservascliente", "Reserva", Model.Cliente.ID)
+        </div>
+    }
+</div>
