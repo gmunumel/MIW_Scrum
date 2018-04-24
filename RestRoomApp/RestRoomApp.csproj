@@ -193,6 +193,7 @@
     <Compile Include="Controllers\AdministradorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ReservasAdminController.cs" />
     <Compile Include="Controllers\ReservasController.cs" />
     <Compile Include="DAL\RestRoomAppContext.cs" />
     <Compile Include="DAL\RestRoomAppInitializer.cs" />
@@ -306,6 +307,11 @@
     <Content Include="Views\Reservas\Vertodos.cshtml" />
     <Content Include="Views\Index.cshtml" />
     <Content Include="Views\Reservas\Reservascliente.cshtml" />
+    <Content Include="Views\ReservasAdmin\Create.cshtml" />
+    <Content Include="Views\ReservasAdmin\Delete.cshtml" />
+    <Content Include="Views\ReservasAdmin\Details.cshtml" />
+    <Content Include="Views\ReservasAdmin\Edit.cshtml" />
+    <Content Include="Views\ReservasAdmin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
