@@ -59,13 +59,13 @@ Para mas [información](https://msdn.microsoft.com/en-us/library/ee712906(v=vs.1
 
 
 ### Integrantes
-* **Project Owner**: Rodrigo
-* **Scrum Master**: David Blas
+* **Project Owner**: Rodrigo Sancho Moya
+* **Scrum Master**: David Blas Vázquez
 * **Desarrolladores**:
-  * Covadonga 
-  * Diana
-  * Carlos
-  * Gabriel Muñumel
+  * Covadonga Díez Sanmartín
+  * Diana Armijo Mendoza
+  * Carlos Blanco Vaquerizo
+  * Gabriel Muñumel Mesa
 
 Licencia
 ----

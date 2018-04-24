@@ -15,8 +15,13 @@ namespace RestRoomApp.Controllers
     {
         private RestRoomAppContext db = new RestRoomAppContext();
 
+        private Boolean repetidaFechayhora (Reserva reserva)
+        {
+            var repetido = db.Reservaciones.Where( r => r.FechaReservacion == reserva.FechaReservacion && r.HoraInicioReservacion == reserva.HoraInicioReservacion);
+            return (repetido.Count() != 0);
+        }
         // GET: Reservas
-        public ActionResult Index()
+        public ActionResult Vertodos()
         {
             var reservaciones = db.Reservaciones.Include(r => r.Cliente).Include(r => r.Habitacion);
             return View(reservaciones.ToList());
@@ -50,18 +55,48 @@ namespace RestRoomApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ReservaID,ClienteID,HabitacionID,HorasReservacion,HoraInicioReservacion,FechaReservacion")] Reserva reserva)
+        public ActionResult Create(Reservadto reservadto)
         {
+            ViewBag.error = "";
             if (ModelState.IsValid)
             {
-                db.Reservaciones.Add(reserva);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                var cliente = db.Clientes.Where(r => r.Correo == reservadto.Correo);
+                if (cliente.Count() != 0)
+                {
+                    Reserva reserva = new Reserva
+                    {
+                        ClienteID = cliente.ToList().First().ID,
+                        HabitacionID = reservadto.HabitacionID,
+                        HorasReservacion = reservadto.HorasReservacion,
+                        HoraInicioReservacion = reservadto.HoraInicioReservacion,
+                        FechaReservacion = reservadto.FechaReservacion
+                    };
+
+                    if (!repetidaFechayhora(reserva))
+                    {
+                        db.Reservaciones.Add(reserva);
+                        db.SaveChanges();
+                        return RedirectToAction("Reservascliente", new { id = reserva.ClienteID }); //return View("Reservascliente", reservaciones.ToList());
+                    } else
+                    {
+                        ViewBag.error = "La fecha y hora reservada coincide con otra";
+                    }
+                } else
+                {
+                    ViewBag.error = "Este correo no se corresponde con ningún cliente registrado.";
+                }
             }
 
-            ViewBag.ClienteID = new SelectList(db.Clientes, "ID", "Nombre", reserva.ClienteID);
-            ViewBag.HabitacionID = new SelectList(db.Habitaciones, "HabitacionId", "Nombre", reserva.HabitacionID);
-            return View(reserva);
+            //ViewBag.ClienteID = new SelectList(db.Clientes, "ID", "Nombre", reserva.ClienteID);
+            ViewBag.HabitacionID = new SelectList(db.Habitaciones, "HabitacionId", "Nombre");
+            return View(reservadto);
+        }
+
+        // GET: Reservas
+        public ActionResult Reservascliente (int? id)
+        {
+            var reservaciones = db.Reservaciones.Include(r => r.Cliente).Include(r => r.Habitacion).Where(r => r.ClienteID == id);
+            return View(reservaciones.ToList());
         }
 
         // GET: Reservas/Edit/5
@@ -102,27 +137,12 @@ namespace RestRoomApp.Controllers
         // GET: Reservas/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Reserva reserva = db.Reservaciones.Find(id);
-            if (reserva == null)
-            {
-                return HttpNotFound();
-            }
-            return View(reserva);
-        }
-
-        // POST: Reservas/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
             Reserva reserva = db.Reservaciones.Find(id);
             db.Reservaciones.Remove(reserva);
             db.SaveChanges();
-            return RedirectToAction("Index");
+
+            var reservaciones = db.Reservaciones.Include(r => r.Cliente).Include(r => r.Habitacion).Where(r => r.ClienteID == reserva.ClienteID);
+            return View("Reservascliente", reservaciones.ToList());
         }
 
         protected override void Dispose(bool disposing)
