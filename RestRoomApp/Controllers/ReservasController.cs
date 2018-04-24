@@ -46,7 +46,7 @@ namespace RestRoomApp.Controllers
         public ActionResult Create()
         {
             ViewBag.ClienteID = new SelectList(db.Clientes, "ID", "Nombre");
-            ViewBag.HabitacionID = new SelectList(db.Habitaciones, "HabitacionId", "Nombre");
+            ViewBag.HabitacionID = new SelectList(db.Habitaciones.Where(h => h.EstaDisponible == true), "HabitacionId", "Nombre");
             return View();
         }
 
@@ -75,6 +75,9 @@ namespace RestRoomApp.Controllers
                     if (!repetidaFechayhora(reserva))
                     {
                         db.Reservaciones.Add(reserva);
+                        db.SaveChanges();
+                        var habitacion = db.Habitaciones.Where(h => h.HabitacionId == reserva.HabitacionID);
+                        habitacion.ToList().First().EstaDisponible = false;
                         db.SaveChanges();
                         return RedirectToAction("Reservascliente", new { id = reserva.ClienteID }); //return View("Reservascliente", reservaciones.ToList());
                     } else
