@@ -1,0 +1,128 @@
+﻿@model RestRoomApp.Models.Habitacion
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Habitacion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Numero)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Numero)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Planta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Planta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Camas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Camas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EstaDisponible)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EstaDisponible)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fotos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fotos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Precio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Precio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Categoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categoria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Servicios)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Servicios)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoHabitacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoHabitacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Notas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Notas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaCreacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaCreacion)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
