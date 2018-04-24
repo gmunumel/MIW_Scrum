@@ -144,6 +144,10 @@ namespace RestRoomApp.Controllers
             db.Reservaciones.Remove(reserva);
             db.SaveChanges();
 
+            var habitacion = db.Habitaciones.Where(h => h.HabitacionId == reserva.HabitacionID);
+            habitacion.ToList().First().EstaDisponible = true;
+            db.SaveChanges();
+
             var reservaciones = db.Reservaciones.Include(r => r.Cliente).Include(r => r.Habitacion).Where(r => r.ClienteID == reserva.ClienteID);
             return View("Reservascliente", reservaciones.ToList());
         }

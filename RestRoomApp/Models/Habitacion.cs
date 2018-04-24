@@ -27,7 +27,7 @@ namespace RestRoomApp.Models
         {
             get
             {
-                return String.Format("Tipo: {0}, Número de Camas: {1}, Disponibilidad {2}", Nombre, Camas , FechaCreacion);
+                return $"Tipo: {Nombre}, Número de Camas: {Camas}, Precio: {Precio.ToString()} €/h, Disponibilidad {FechaCreacion}";
             }
         }
     }
