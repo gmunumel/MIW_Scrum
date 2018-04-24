@@ -46,7 +46,7 @@ namespace RestRoomApp.Controllers
         public ActionResult Create()
         {
             ViewBag.ClienteID = new SelectList(db.Clientes, "ID", "Nombre");
-            ViewBag.HabitacionID = new SelectList(db.Habitaciones.Where(h => h.EstaDisponible == true), "HabitacionId", "Nombre");
+            ViewBag.HabitacionID = new SelectList(db.Habitaciones.Where(h => h.EstaDisponible == true), "HabitacionId", "NombreCompleto");
             return View();
         }
 
@@ -91,7 +91,7 @@ namespace RestRoomApp.Controllers
             }
 
             //ViewBag.ClienteID = new SelectList(db.Clientes, "ID", "Nombre", reserva.ClienteID);
-            ViewBag.HabitacionID = new SelectList(db.Habitaciones, "HabitacionId", "Nombre");
+            ViewBag.HabitacionID = new SelectList(db.Habitaciones, "HabitacionId", "NombreCompleto");
             return View(reservadto);
         }
 
@@ -142,6 +142,10 @@ namespace RestRoomApp.Controllers
         {
             Reserva reserva = db.Reservaciones.Find(id);
             db.Reservaciones.Remove(reserva);
+            db.SaveChanges();
+
+            var habitacion = db.Habitaciones.Where(h => h.HabitacionId == reserva.HabitacionID);
+            habitacion.ToList().First().EstaDisponible = true;
             db.SaveChanges();
 
             var reservaciones = db.Reservaciones.Include(r => r.Cliente).Include(r => r.Habitacion).Where(r => r.ClienteID == reserva.ClienteID);

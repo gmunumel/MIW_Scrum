@@ -20,9 +20,9 @@ namespace RestRoomApp.DAL
 
             var habitaciones = new List<Habitacion>
             {
-                new Habitacion{Nombre="Suite",Camas=2,EstaDisponible=true,FechaCreacion=DateTime.Parse("2018-11-01")},
-                new Habitacion{Nombre="Simple",Camas=1,EstaDisponible=true,FechaCreacion=DateTime.Parse("2018-11-01")},
-                new Habitacion{Nombre="Suite Presidencial",Camas=3,EstaDisponible=true,FechaCreacion=DateTime.Parse("2018-11-01")}
+                new Habitacion{Nombre="Suite",Camas=2,EstaDisponible=true,FechaCreacion=DateTime.Parse("2018-11-01"), Precio=20},
+                new Habitacion{Nombre="Simple",Camas=1,EstaDisponible=true,FechaCreacion=DateTime.Parse("2018-11-01"), Precio=20},
+                new Habitacion{Nombre="Suite Presidencial",Camas=3,EstaDisponible=true,FechaCreacion=DateTime.Parse("2018-11-01"), Precio=100}
             };
 
             habitaciones.ForEach(s => context.Habitaciones.Add(s));
