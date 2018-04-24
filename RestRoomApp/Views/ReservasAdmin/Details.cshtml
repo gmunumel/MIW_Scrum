@@ -1,0 +1,58 @@
+﻿@model RestRoomApp.Models.Reserva
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+<br />
+
+<div>
+    <h4>Reserva</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Cliente.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cliente.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Habitacion.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Habitacion.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HorasReservacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HorasReservacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HoraInicioReservacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoraInicioReservacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaReservacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaReservacion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ReservaID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

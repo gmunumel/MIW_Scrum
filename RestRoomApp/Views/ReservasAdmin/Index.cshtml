@@ -1,0 +1,61 @@
+﻿@model IEnumerable<RestRoomApp.Models.Reserva>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+<br />
+
+<!DOCTYPE html>
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cliente.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Habitacion.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HorasReservacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HoraInicioReservacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaReservacion)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cliente.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Habitacion.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HorasReservacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoraInicioReservacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaReservacion)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ReservaID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ReservaID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ReservaID })
+            </td>
+        </tr>
+    }
+
+</table>

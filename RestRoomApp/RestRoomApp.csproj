@@ -191,14 +191,21 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdministradorsController.cs" />
+    <Compile Include="Controllers\HabitacionesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ReservasAdminController.cs" />
     <Compile Include="Controllers\ReservasController.cs" />
     <Compile Include="DAL\RestRoomAppContext.cs" />
     <Compile Include="DAL\RestRoomAppInitializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804242013238_Inicial.cs" />
+    <Compile Include="Migrations\201804242013238_Inicial.Designer.cs">
+      <DependentUpon>201804242013238_Inicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Administrador.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -294,11 +301,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Habitaciones\Create.cshtml" />
-    <Content Include="Views\Habitaciones\Delete.cshtml" />
-    <Content Include="Views\Habitaciones\Details.cshtml" />
-    <Content Include="Views\Habitaciones\Edit.cshtml" />
-    <Content Include="Views\Habitaciones\Index.cshtml" />
     <Content Include="Views\Reservas\Create.cshtml" />
     <Content Include="Views\Reservas\Delete.cshtml" />
     <Content Include="Views\Reservas\Details.cshtml" />
@@ -306,6 +308,16 @@
     <Content Include="Views\Reservas\Vertodos.cshtml" />
     <Content Include="Views\Index.cshtml" />
     <Content Include="Views\Reservas\Reservascliente.cshtml" />
+    <Content Include="Views\ReservasAdmin\Create.cshtml" />
+    <Content Include="Views\ReservasAdmin\Delete.cshtml" />
+    <Content Include="Views\ReservasAdmin\Details.cshtml" />
+    <Content Include="Views\ReservasAdmin\Edit.cshtml" />
+    <Content Include="Views\ReservasAdmin\Index.cshtml" />
+    <Content Include="Views\Habitaciones\Create.cshtml" />
+    <Content Include="Views\Habitaciones\Delete.cshtml" />
+    <Content Include="Views\Habitaciones\Details.cshtml" />
+    <Content Include="Views\Habitaciones\Edit.cshtml" />
+    <Content Include="Views\Habitaciones\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -322,6 +334,11 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201804242013238_Inicial.resx">
+      <DependentUpon>201804242013238_Inicial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
