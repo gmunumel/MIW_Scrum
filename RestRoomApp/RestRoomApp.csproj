@@ -190,17 +190,23 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdministradorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ReservasAdminController.cs" />
+    <Compile Include="Controllers\ReservasController.cs" />
     <Compile Include="DAL\RestRoomAppContext.cs" />
+    <Compile Include="DAL\RestRoomAppInitializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Administrador.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Habitacion.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Reservadto.cs" />
     <Compile Include="Models\Reserva.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -208,10 +214,35 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\admin.png" />
+    <Content Include="Images\booking.gif" />
+    <Content Include="Images\carousel2.png" />
+    <Content Include="Images\carousel3.png" />
+    <Content Include="Images\clients.gif" />
+    <Content Include="Images\frame1.PNG" />
+    <Content Include="Images\frame2.PNG" />
+    <Content Include="Images\frame3.PNG" />
+    <Content Include="Images\frame4.PNG" />
+    <Content Include="Images\frame5.PNG" />
+    <Content Include="Images\frame6.PNG" />
+    <Content Include="Images\hotel_logo.png" />
+    <Content Include="Images\kanban.gif" />
+    <Content Include="Images\carousel1.png" />
+    <Content Include="Images\rooms.gif" />
+    <Content Include="Images\scrum.jpg" />
+    <Content Include="Images\scrum2.jpg" />
+    <Content Include="Images\tdd.png" />
+    <Content Include="Images\the-team.gif" />
+    <Content Include="Images\user-stories.jpg" />
+    <Content Include="Images\user-story.jpg" />
+    <Content Include="Images\xp.gif" />
+    <Content Include="Images\xurcielagon.png" />
+    <Content Include="Scripts\animation.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -228,7 +259,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -262,6 +295,23 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Habitaciones\Create.cshtml" />
+    <Content Include="Views\Habitaciones\Delete.cshtml" />
+    <Content Include="Views\Habitaciones\Details.cshtml" />
+    <Content Include="Views\Habitaciones\Edit.cshtml" />
+    <Content Include="Views\Habitaciones\Index.cshtml" />
+    <Content Include="Views\Reservas\Create.cshtml" />
+    <Content Include="Views\Reservas\Delete.cshtml" />
+    <Content Include="Views\Reservas\Details.cshtml" />
+    <Content Include="Views\Reservas\Edit.cshtml" />
+    <Content Include="Views\Reservas\Vertodos.cshtml" />
+    <Content Include="Views\Index.cshtml" />
+    <Content Include="Views\Reservas\Reservascliente.cshtml" />
+    <Content Include="Views\ReservasAdmin\Create.cshtml" />
+    <Content Include="Views\ReservasAdmin\Delete.cshtml" />
+    <Content Include="Views\ReservasAdmin\Details.cshtml" />
+    <Content Include="Views\ReservasAdmin\Edit.cshtml" />
+    <Content Include="Views\ReservasAdmin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

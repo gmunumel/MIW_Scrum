@@ -1,31 +1,283 @@
 ﻿@{
     ViewBag.Title = "Home Page";
+    ViewBag.Message = "Contacta con nosotros.";
 }
+<br>
+<br>
+<br>
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+<!-- Carousel
+================================================== -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img class="first-slide" src="~/Images/carousel1.png" alt="First slide">
+            <div class="container">
+                <div class="carousel-caption">
+
+                    <h1>Escuela Técnica Superior de Ingeniería de Sistemas Informáticos</h1>
+                    <h1>Universidad Politécnica de Madrid</h1>
+                    <h3>Xurcielagon</h3>
+                    <h2>Máster Ingeniería Web &middot;- Metodologías Ligeras de Desarrollo Web</h2>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img class="second-slide" src="~/Images/carousel2.png" alt="Second slide">
+            <div class="container">
+                <div class="carousel-caption">
+
+                    <h1>Practica Metodologías Ligeras de Desarrollo Web</h1>
+                    <h1>Hourly Hotels</h1>
+                    <h3>Xurcielagon</h3>
+                    <h2>Metodologías Ligeras de Desarrollo Web</h2>
+
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img class="third-slide" src="~/Images/carousel3.png" alt="Third slide">
+            <div class="container">
+                <div class="carousel-caption">
+
+                    <h1>Practica Metodologías Ligeras de Desarrollo Web</h1>
+                    <h1>Hourly Hotels</h1>
+                    <h3>Xurcielagon</h3>
+                    <h2>Metodologías Ligeras de Desarrollo Web</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div><!-- /.carousel -->
+
+
+
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+
+    <hr class="featurette-divider">
+
+    <div id="marketing" class="marketing slide">
+
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+            <div class="col-md-3 text-center">
+                <img class="img-rounded" src="~/Images/rooms.gif" alt="Generic placeholder image" width="140" height="140">
+                <h2>@Html.ActionLink("Habitaciones", "Index", "Habitaciones", new { area = "" }, new { @class = "btn btn-lg btn-danger btn-block" })</h2>
+                <p align="left">
+                    Una habitación, del latín habitatǐo, -ōnis, de "habitare" ("habitar"), en arquitectura, es cada uno de los espacios de una vivienda, situados entre tabiques y destinados a dormir, comer, etc.1
+
+                    Suele estar separada de otros espacios interiores mediante paredes interiores con puerta; y del exterior, mediante paredes exteriores con ventanas.
+                </p>
+            </div>
+            <div class="col-md-3 text-center">
+                <img class="img-rounded" src="~/Images/clients.gif" alt="Generic placeholder image" width="140" height="140">
+                <h2>@Html.ActionLink("Clientes", "Index", "Clientes", new { area = "" }, new { @class = "btn btn-lg btn-primary btn-block" })</h2>
+                <p align="left">Este uso del término es opuesto al que tiene en el lenguaje coloquial, donde significa «hospedado» y ya no «hospedador». La palabra huésped procede del latín hospes (genitivo hospitis), que ya representaba entonces la misma pareja de significados contradictorios: «el que alberga» y «el que es albergado».​</p>
+            </div>
+            <div class="col-md-3 text-center">
+                <img class="img-rounded" src="~/Images/booking.gif" alt="Generic placeholder image" width="140" height="140">
+                <h2>@Html.ActionLink("Reservas", "Create", "Reservas", new { area = "" }, new { @class = "btn btn-lg btn-success btn-block" })</h2>
+                <p align="left">El término reserva puede referirse, en esta enciclopedia: a la guarda y custodia;​; a la excepción de una ley común;​; a la prevención o cautela para no descubrir lo que se piensa;. a la reserva mental, una alternativa moralmente aceptable a la mentira; jurídicamente, se considera un vicio de la voluntad;</p>
+            </div>
+            <div class="col-md-3 text-center">
+                <img class="img-rounded" src="~/Images/admin.png" alt="Generic placeholder image" width="140" height="140">
+                <h2>@Html.ActionLink("Administradores", "Index", "ReservasAdmin", new { area = "" }, new { @class = "btn btn-lg btn-success btn-block" })</h2>
+                <p align="left">Persona que administra bienes ajenos.</p>
+            </div>
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+
+<hr class="featurette-divider">
+<!-- START THE FEATURETTES -->
+<div id="scrum" class="featurette slide">
+    <br>
+    <br>
+    <br>
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h2 class="featurette-heading">SCRUM<br /><span class="text-muted">Metodologías Ligeras de Desarrollo Web</span></h2>
+            <p class="lead">
+                Scrum es el nombre con el que se denomina a los marcos de desarrollo ágiles caracterizados por:
+            </p>
+            <p class="lead">
+                Adoptar una estrategia de desarrollo incremental, en lugar de la planificación y ejecución completa del producto.
+                Basar la calidad del resultado más en el conocimiento tácito de las personas en equipos auto organizados, que en la calidad de los procesos empleados.
+                Solapamiento de las diferentes fases del desarrollo, en lugar de realizar una tras otra en un ciclo secuencial o en cascada.
+            </p>
+        </div>
+        <div class="col-md-5 text-center">
+            <br /><br />
+            <img src="~/Images/scrum.jpg" class="img-fluid img-thumbnail img-rounded" alt="Responsive">
+        </div>
+    </div>
+
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+
+
+
+<hr class="featurette-divider">
+
+<div id="user-story" class="featurette slide">
+    <br>
+    <br>
+    <br>
+    <div class="row featurette">
+        <div class="col-md-8">
+            <h2 class="featurette-heading">Historias de usuario<br /> <span class="text-muted">Metodologías Ligeras de Desarrollo Web</span></h2>
+            <p class="lead">Una historia de usuario es una representación de un requisito escrito en una o dos frases utilizando el lenguaje común del usuario. Las historias de usuario son utilizadas en las metodologías de desarrollo ágiles para la especificación de requisitos (acompañadas de las discusiones con los usuarios y las pruebas de validación). Cada historia de usuario debe ser limitada, ésta debería poderse escribir sobre una nota adhesiva pequeña. Dentro de la metodología XP las historias de usuario deben ser escritas por los usuarios.</p>
+            <p class="lead">Las historias de usuario son una forma rápida de administrar los requisitos de los usuarios sin tener que elaborar gran cantidad de documentos formales y sin requerir de mucho tiempo para administrarlos. Las historias de usuario permiten responder rápidamente a los requisitos cambiantes.</p>
+
+        </div>
+        <div class="col-md-4">
+            <img src="~/Images/user-story.jpg" class="img-fluid img-thumbnail img-rounded" alt="Responsive">
+            <img src="~/Images/user-stories.jpg" class="img-fluid img-thumbnail img-rounded" alt="Responsive">
+        </div>
     </div>
 </div>
+
+<hr class="featurette-divider">
+
+<div id="kanban" class="featurette slide">
+    <br>
+    <br>
+    <br>
+    <div class="row featurette">
+        <div class="col-md-6 col-md-push-6">
+            <h2 class="featurette-heading">Kanban<br /> <span class="text-muted">Metodologías Ligeras de Desarrollo Web</span></h2>
+            <p class="lead"><strong>Kanban</strong> El proceso, desde la definición de una tarea hasta su entrega al cliente, se muestra para que los participantes lo vean y los miembros del equipo tomen el trabajo de una cola.</p>
+            <p class="lead">Kanban se puede dividir en dos partes:</p>
+            <ul class="list-group">
+                <li>Kanban - Un sistema de gestión de proceso visual que le indica qué producir, cuándo producirlo, y cuánto producir.</li>
+                <li>El método Kanban - Una aproximación a la mejora del proceso evolutivo e incremental para las organizaciones.</li>
+            </ul>
+
+        </div>
+        <div class="col-md-6 col-md-pull-6">
+            <img src="~/Images/kanban.gif" class="img-fluid img-thumbnail img-rounded" alt="Responsive">
+        </div>
+    </div>
+</div>
+<hr class="featurette-divider">
+
+<div id="tdd" class="featurette slide">
+    <br>
+    <br>
+    <br>
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h2 class="featurette-heading">Desarrollo guiado por pruebas de software, o Test-driven development (TDD)<br /><span class="text-muted">Metodologías Ligeras de Desarrollo Web</span></h2>
+            <p class="lead">involucra otras dos prácticas: Escribir las pruebas primero (Test First Development) y Refactorización (Refactoring). Para escribir las pruebas generalmente se utilizan las pruebas unitarias (unit test en inglés). En primer lugar, se escribe una prueba y se verifica que las pruebas fallan. A continuación, se implementa el código que hace que la prueba pase satisfactoriamente y seguidamente se refactoriza el código escrito.</p>
+        </div>
+        <div class="col-md-5">
+            <img src="~/Images/tdd.png" class="img-fluid img-thumbnail img-rounded" alt="Responsive">
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+    <div id="xp" class="featurette slide">
+        <br>
+        <br>
+        <br>
+        <div i class="row featurette">
+            <div class="col-md-6 col-md-push-6">
+                <h2 class="featurette-heading">Programación extrema o eXtreme Programming <br /><span class="text-muted">Metodologías Ligeras de Desarrollo Web</span></h2>
+                <p class="lead">
+                    Metodología de desarrollo de la ingeniería de software formulada por Kent Beck, autor del primer libro sobre la materia, Extreme Programming Explained: Embrace Change (1999).
+                </p>
+                <p class="lead">
+                    Es el más destacado de los procesos ágiles de desarrollo de software. Al igual que éstos, la programación extrema se diferencia de las metodologías tradicionales principalmente en que pone más énfasis en la adaptabilidad que en la previsibilidad. Los defensores de la XP consideran que los cambios de requisitos sobre la marcha son un aspecto natural, inevitable e incluso deseable del desarrollo de proyectos. Creen que ser capaz de adaptarse a los cambios de requisitos en cualquier punto de la vida del proyecto es una aproximación mejor y más realista que intentar definir todos los requisitos al comienzo del proyecto e invertir esfuerzos después en controlar los cambios en los requisitos.
+                </p>
+            </div>
+            <div class="col-md-6 col-md-pull-6">
+                <img src="~/Images/xp.gif" class="img-fluid img-thumbnail img-rounded" alt="Responsive">
+            </div>
+        </div>
+    </div>
+</div>
+<hr class="featurette-divider">
+
+<div id="about" class="about slide">
+    <br>
+    <div class="row slideanim slide">
+        <div class="col-sm-12">
+            <div class="panel panel-warning">
+                <div class="panel-heading">
+                    <h2><span class="glyphicon glyphicon-info-sign logo-small"></span> Acerca de</h2>
+                </div>
+                <div class="panel-body">
+                    <div class="col-sm-7">
+                        <h2 class="text-center">Metodologías Ligeras de Desarrollo Web</h2>
+                        <p>
+                            El desarrollo ágil de software envuelve un enfoque para la toma de decisiones en los proyectos de software, que se refiere a métodos de ingeniería del software basados en el desarrollo iterativo e incremental, donde los requisitos y soluciones evolucionan con el tiempo según la necesidad del proyecto. Así el trabajo es realizado mediante la colaboración de equipos auto-organizados y multidisciplinarios, inmersos en un proceso compartido de toma de decisiones a corto plazo.
+
+
+                        </p>
+                        <p><strong>Cada iteración del ciclo de vida incluye: planificación, análisis de requisitos, diseño, codificación, pruebas y documentación. Teniendo gran importancia el concepto de "Finalizado" (Done), ya que el objetivo de cada iteración no es agregar toda la funcionalidad para justificar el lanzamiento del producto al mercado, sino incrementar el valor por medio de "software que funciona" (sin errores).</strong></p>
+                    </div>
+                    <div class="col-sm-5">
+                        <img src="~/Images/the-team.gif" class="img-fluid img-thumbnail img-rounded" alt="Responsive">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr class="featurette-divider">
+
+<!-- /END THE FEATURETTES -->
+
+<hr class="featurette-divider">
+
+<div id="contact" class="contact slide">
+    <br>
+    <div class="row slideanim slide">
+        <div class="col-sm-12">
+            <div class="panel panel-warning">
+                <div class="panel-heading">
+                    <h2><span class="glyphicon glyphicon-map-marker logo-small"></span>@DateTime.Now.Year Máster Ingeniería Web &middot; Metodologías Ligeras de Desarrollo Web</h2>
+                </div>
+                <div class="panel-body">
+                    <div class="col-sm-5">
+                        <h3 class="text-center">
+                            Escuela Técnica Superior de Ingeniería de Sistemas Informáticos ETSISI
+                        </h3>
+
+                        <h2 class="text-center"><img src="~/Images/xurcielagon.png" class="img-circle" alt="Xurcielagon" width="80"><br />Xurcielagon</h2>
+
+                        <p class="text-center"><span class="glyphicon glyphicon-envelope"> </span><a href="mailto:socrtx@gmail.com"> socrtx@gmail.com</a>  </p>
+                        <p class="text-center"><span class="glyphicon glyphicon-envelope"> </span><a href="mailto:diana.gtf88@gmail.com"> diana.gtf88@gmail.com</a>  </p>
+                        <p class="text-center"><span class="glyphicon glyphicon-envelope"> </span><a href="mailto:webkova@gmail.com"> webkova@gmail.com</a>  </p>
+                        <p class="text-center"><span class="glyphicon glyphicon-envelope"> </span><a href="mailto:david.bv@gmail.com"> david.bv@gmail.com</a>  </p>
+                        <p class="text-center"><span class="glyphicon glyphicon-envelope"> </span><a href="mailto:rodrigo.sanchomoya@gmail.com"> rodrigo.sanchomoya@gmail.com</a>  </p>
+                        <p class="text-center"><span class="glyphicon glyphicon-envelope"> </span><a href="mailto:gabrielmunumel@gmail.com"> gabrielmunumel@gmail.com</a>  </p>
+
+                    </div>
+                    <div class="col-sm-7">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48621.7739774274!2d-3.62841!3d40.389776!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x21ca0be0f550171a!2sUniversidad+Polit%C3%A9cnica+de+Madrid%3A+Escuela+T%C3%A9cnica+Superior+de+Ingenier%C3%ADa+de+Sistemas+Inform%C3%A1ticos!5e0!3m2!1ses!2ses!4v1495915728474" width="600" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
