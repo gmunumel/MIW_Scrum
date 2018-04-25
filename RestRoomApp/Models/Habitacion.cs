@@ -24,6 +24,14 @@ namespace RestRoomApp.Models
         public DateTime FechaCreacion { get; set; }
 
         public virtual ICollection<Reserva> Reservaciones { get; set; }
+
+        public string NombreCompleto
+        {
+            get
+            {
+                return $"Tipo: {Nombre}, Número de Camas: {Camas}, Precio: {Precio.ToString()} €/h, Disponibilidad {FechaCreacion}";
+            }
+        }
     }
 }
 
