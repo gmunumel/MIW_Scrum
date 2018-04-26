@@ -6,7 +6,7 @@ namespace RestRoomApp.DAL
 {
     public class RestRoomAppContext : DbContext
     {
-        public RestRoomAppContext() : base("RestRoomDB")
+        public RestRoomAppContext() : base("IdentityASPNETDB")
         {
         }
 
