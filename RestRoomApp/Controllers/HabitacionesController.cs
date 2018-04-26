@@ -6,18 +6,19 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using RestRoomApp.DAL;
 using RestRoomApp.Models;
 
 namespace RestRoomApp.Controllers
 {
     public class HabitacionesController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private RestRoomAppContext db = new RestRoomAppContext();
 
         // GET: Habitaciones
         public ActionResult Index()
         {
-            return View(db.Habitacions.ToList());
+            return View(db.Habitaciones.ToList());
         }
 
         // GET: Habitaciones/Details/5
@@ -27,7 +28,7 @@ namespace RestRoomApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Habitacion habitacion = db.Habitacions.Find(id);
+            Habitacion habitacion = db.Habitaciones.Find(id);
             if (habitacion == null)
             {
                 return HttpNotFound();
@@ -50,7 +51,7 @@ namespace RestRoomApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Habitacions.Add(habitacion);
+                db.Habitaciones.Add(habitacion);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -65,7 +66,7 @@ namespace RestRoomApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Habitacion habitacion = db.Habitacions.Find(id);
+            Habitacion habitacion = db.Habitaciones.Find(id);
             if (habitacion == null)
             {
                 return HttpNotFound();
@@ -96,7 +97,7 @@ namespace RestRoomApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Habitacion habitacion = db.Habitacions.Find(id);
+            Habitacion habitacion = db.Habitaciones.Find(id);
             if (habitacion == null)
             {
                 return HttpNotFound();
@@ -109,8 +110,8 @@ namespace RestRoomApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Habitacion habitacion = db.Habitacions.Find(id);
-            db.Habitacions.Remove(habitacion);
+            Habitacion habitacion = db.Habitaciones.Find(id);
+            db.Habitaciones.Remove(habitacion);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
