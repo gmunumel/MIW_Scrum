@@ -1,105 +1,111 @@
 ﻿@model IEnumerable<RestRoomApp.Models.Habitacion>
 
-@{
-    ViewBag.Title = "Index";
-}
+<div class="panel-body slide">
+    <br /> <br /> <br />
+    <h2>Habitaciones</h2>
+    <div class="table-responsive">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Numero)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Planta)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Camas)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EstaDisponible)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Descripcion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fotos)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Precio)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Categoria)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Servicios)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TipoHabitacion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Notas)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FechaCreacion)
+                </th>
 
-<h2>Index</h2>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th>
+                    @Html.ActionLink("+ Nuevo", "Create", "Habitaciones", new { area = "" }, new { @class = "btn btn-danger" })
+                </th>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Numero)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Planta)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Camas)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EstaDisponible)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Fotos)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Precio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Categoria)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Servicios)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TipoHabitacion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Notas)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FechaCreacion)
-        </th>
-        <th></th>
-    </tr>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Numero)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Planta)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Camas)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EstaDisponible)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Descripcion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fotos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Precio)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Categoria)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Servicios)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TipoHabitacion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Notas)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FechaCreacion)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Modificar", "Edit", new { id = item.HabitacionId }, new { @class = "btn btn-sm btn-danger btn-block" })
+                    </td>
+                    <td>
+                        @Html.ActionLink("Ver", "Details", new { id = item.HabitacionId }, new { @class = "btn btn-sm btn-info btn-block" })
+                    </td>
+                    <td>
+                        @Html.ActionLink("Borrar", "Delete", new { id = item.HabitacionId }, new { @class = "btn btn-sm btn-default btn-block" })
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Numero)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Planta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Camas)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EstaDisponible)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descripcion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Fotos)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Precio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Categoria)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Servicios)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TipoHabitacion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Notas)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FechaCreacion)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.HabitacionId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.HabitacionId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.HabitacionId })
-        </td>
-    </tr>
-}
 
-</table>
