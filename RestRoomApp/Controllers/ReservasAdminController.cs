@@ -11,7 +11,7 @@ using RestRoomApp.Models;
 
 namespace RestRoomApp.Controllers
 {
-    [Authorize(Users = "admin@gmail.com")]
+    [Authorize(Users = "admin@admin.com")]
     public class ReservasAdminController : Controller
     {
         private RestRoomAppContext db = new RestRoomAppContext();
