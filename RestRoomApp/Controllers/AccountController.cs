@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using RestRoomApp.DAL;
 using RestRoomApp.Models;
 
 namespace RestRoomApp.Controllers
@@ -17,12 +18,14 @@ namespace RestRoomApp.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private RestRoomAppContext RestRoomAppContext = new RestRoomAppContext();
 
         public AccountController()
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, 
+            ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -155,6 +158,18 @@ namespace RestRoomApp.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    Cliente cliente = new Cliente
+                    {
+                        Nombre = model.Email,
+                        Apellido = model.Email,
+                        Correo = model.Email,
+                        FechaCreacion = DateTime.Now
+                    };
+                    RestRoomAppContext.Clientes.Add(cliente);
+                    RestRoomAppContext.SaveChanges();
+
+                    UserManager.AddToRole(user.Id, RoleTypes.Client);
+
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // Para obtener más información sobre cómo habilitar la confirmación de cuentas y el restablecimiento de contraseña, visite https://go.microsoft.com/fwlink/?LinkID=320771

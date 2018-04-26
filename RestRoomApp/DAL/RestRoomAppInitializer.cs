@@ -1,4 +1,6 @@
-﻿using RestRoomApp.Models;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using RestRoomApp.Models;
 using System;
 using System.Collections.Generic;
 
@@ -8,6 +10,12 @@ namespace RestRoomApp.DAL
     {
         protected override void Seed(RestRoomAppContext context)
         {
+            InitializeDB(context);
+            base.Seed(context);
+        }
+
+        private void InitializeDB(RestRoomAppContext context)
+        { 
             var clientes = new List<Cliente>
             {
                 new Cliente{Nombre="Carson",Apellido="Alexander",Correo="calexander@gmail.com",FechaCreacion=DateTime.Parse("2018-09-01")},
@@ -20,9 +28,9 @@ namespace RestRoomApp.DAL
 
             var habitaciones = new List<Habitacion>
             {
-                new Habitacion{Nombre="Suite",Camas=2,EstaDisponible=true,FechaCreacion=DateTime.Parse("2018-11-01")},
-                new Habitacion{Nombre="Simple",Camas=1,EstaDisponible=true,FechaCreacion=DateTime.Parse("2018-11-01")},
-                new Habitacion{Nombre="Suite Presidencial",Camas=3,EstaDisponible=true,FechaCreacion=DateTime.Parse("2018-11-01")}
+                new Habitacion{Nombre="Suite",Camas=2,EstaDisponible=true,FechaCreacion=DateTime.Parse("2018-11-01"), Precio=20},
+                new Habitacion{Nombre="Simple",Camas=1,EstaDisponible=true,FechaCreacion=DateTime.Parse("2018-11-01"), Precio=20},
+                new Habitacion{Nombre="Suite Presidencial",Camas=3,EstaDisponible=true,FechaCreacion=DateTime.Parse("2018-11-01"), Precio=100}
             };
 
             habitaciones.ForEach(s => context.Habitaciones.Add(s));
@@ -43,6 +51,40 @@ namespace RestRoomApp.DAL
             };
             administradores.ForEach(s => context.Administradors.Add(s));
             context.SaveChanges();
+
+            CreateAdminUser();
         }
+
+        private void CreateAdminUser()
+        {
+            // Initialize default identity roles
+            var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());
+            var roleManager = new RoleManager<IdentityRole>(roleStore);
+            // RoleTypes is a class containing constant string values for different roles
+            List<IdentityRole> identityRoles = new List<IdentityRole>();
+            identityRoles.Add(new IdentityRole() { Name = RoleTypes.Admin });
+            identityRoles.Add(new IdentityRole() { Name = RoleTypes.Client });
+
+            foreach (IdentityRole role in identityRoles)
+            {
+                roleManager.Create(role);
+            }
+
+            // Initialize default user
+            var userStore = new UserStore<ApplicationUser>(new ApplicationDbContext());
+            var userManager = new UserManager<ApplicationUser>(userStore);
+            ApplicationUser admin = new ApplicationUser();
+            admin.Email = "admin@admin.com";
+            admin.UserName = "admin@admin.com";
+
+            userManager.Create(admin, "Admin1!");
+            userManager.AddToRole(admin.Id, RoleTypes.Admin);
+        }
+    }
+
+    public class RoleTypes
+    {
+        public static string Admin = "Admin";
+        public static string Client = "Client";
     }
 }

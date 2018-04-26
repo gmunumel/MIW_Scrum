@@ -1,30 +1,31 @@
-﻿@model RestRoomApp.Models.Reservadto
+﻿@model RestRoomApp.Models.Reserva
 
 @{
-    ViewBag.Title = "Hacer Reserva";
+    ViewBag.Title = "Index";
 }
-
-
+<br />
+<br />
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    <br />
-    <br />
-    <div class="form-horizontal">
 
+    <div class="form-horizontal">
+        <h4>Reserva</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ReservaID)
+
         <div class="form-group">
-            @Html.LabelFor(model => model.Correo, "Identificate con tu correo:", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ClienteID, "ClienteID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Correo, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Correo, "", new { @class = "text-danger" })
+                @Html.DropDownList("ClienteID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ClienteID, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.HabitacionID, "Elige tu habitacion:", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.HabitacionID, "HabitacionID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("HabitacionID", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.HabitacionID, "", new { @class = "text-danger" })
@@ -32,7 +33,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.HorasReservacion, "Número de horas a reservar:", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.HorasReservacion, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.HorasReservacion, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.HorasReservacion, "", new { @class = "text-danger" })
@@ -40,7 +41,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.HoraInicioReservacion, "Indica hora de inicio:", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.HoraInicioReservacion, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.HoraInicioReservacion, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.HoraInicioReservacion, "", new { @class = "text-danger" })
@@ -48,27 +49,22 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.FechaReservacion, "Indica la fecha de la reserva:", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.FechaReservacion, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.FechaReservacion, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.FechaReservacion, "", new { @class = "text-danger" })
             </div>
         </div>
 
-
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Reservar" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
-@if (ViewBag.Error != null)
-{
-    <h4 style="color:red">@ViewBag.Error</h4>
-}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
