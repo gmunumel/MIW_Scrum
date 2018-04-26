@@ -1,0 +1,57 @@
+﻿@model IEnumerable<RestRoomApp.Models.Reserva>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+<br />
+
+<h2>Listar todas las Reservas (para desarrollo)</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cliente.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cliente.Correo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Habitacion.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HorasReservacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HoraInicioReservacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaReservacion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cliente.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cliente.Correo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Habitacion.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HorasReservacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoraInicioReservacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaReservacion)
+        </td>
+    </tr>
+}
+
+</table>
