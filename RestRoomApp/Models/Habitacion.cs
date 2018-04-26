@@ -16,12 +16,22 @@ namespace RestRoomApp.Models
         public string Fotos { get; set; }
         public double Precio { get; set; }
         public int Categoria { get; set; }
+        public string Servicios { get; set; }
+        public string TipoHabitacion { get; set; }
         public string Notas { get; set; }
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [DataType(DataType.Date)]
         public DateTime FechaCreacion { get; set; }
 
         public virtual ICollection<Reserva> Reservaciones { get; set; }
+
+        public string NombreCompleto
+        {
+            get
+            {
+                return $"Tipo: {Nombre}, Número de Camas: {Camas}, Precio: {Precio.ToString()} €/h, Disponibilidad {FechaCreacion}";
+            }
+        }
     }
 }
 
