@@ -1,7 +1,8 @@
 ﻿@model IEnumerable<RestRoomApp.Models.Cliente>
 
+
 @{
-    Layout = null;
+    ViewBag.Title = "Index";
 }
 
 <!DOCTYPE html>
@@ -12,6 +13,10 @@
     <title>Index</title>
 </head>
 <body>
+    <br />
+    <br />
+    <br />
+    <br />
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>
@@ -31,29 +36,30 @@
             </th>
             <th></th>
         </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Apellido)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Correo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaCreacion)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-            </td>
-        </tr>
-    }
-    
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Apellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Correo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaCreacion)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>
+            </tr>
+        }
+
     </table>
 </body>
 </html>

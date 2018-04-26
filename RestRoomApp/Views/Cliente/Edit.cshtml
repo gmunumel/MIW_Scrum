@@ -1,7 +1,7 @@
 ﻿@model RestRoomApp.Models.Cliente
 
 @{
-    Layout = null;
+    ViewBag.Title = "Edit";
 }
 
 <!DOCTYPE html>
@@ -12,16 +12,20 @@
     <title>Edit</title>
 </head>
 <body>
+    <br />
+    <br />
+    <br />
+    <br />
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-        
+
         <div class="form-horizontal">
             <h4>Cliente</h4>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             @Html.HiddenFor(model => model.ID)
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -29,7 +33,7 @@
                     @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.Apellido, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -37,7 +41,7 @@
                     @Html.ValidationMessageFor(model => model.Apellido, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.Correo, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -45,7 +49,7 @@
                     @Html.ValidationMessageFor(model => model.Correo, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.FechaCreacion, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -53,7 +57,7 @@
                     @Html.ValidationMessageFor(model => model.FechaCreacion, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Save" class="btn btn-default" />
@@ -61,7 +65,7 @@
             </div>
         </div>
     }
-    
+
     <div>
         @Html.ActionLink("Back to List", "Index")
     </div>
