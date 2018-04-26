@@ -1,7 +1,7 @@
 ﻿@model RestRoomApp.Models.Cliente
 
 @{
-    Layout = null;
+    ViewBag.Title = "Details";
 }
 
 <!DOCTYPE html>
@@ -12,6 +12,10 @@
     <title>Details</title>
 </head>
 <body>
+    <br />
+    <br />
+    <br />
+    <br />
     <div>
         <h4>Cliente</h4>
         <hr />
@@ -19,35 +23,35 @@
             <dt>
                 @Html.DisplayNameFor(model => model.Nombre)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Nombre)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Apellido)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Apellido)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Correo)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Correo)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.FechaCreacion)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.FechaCreacion)
             </dd>
-    
+
         </dl>
     </div>
     <p>

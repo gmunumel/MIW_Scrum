@@ -6,13 +6,14 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using RestRoomApp.DAL;
 using RestRoomApp.Models;
 
 namespace RestRoomApp.Controllers
 {
     public class ClienteController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private RestRoomAppContext db = new RestRoomAppContext();
 
         // GET: Cliente
         public ActionResult Index()
