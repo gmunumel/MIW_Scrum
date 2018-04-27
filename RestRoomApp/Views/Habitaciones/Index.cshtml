@@ -73,7 +73,7 @@
                         @Html.DisplayFor(modelItem => item.Descripcion)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Fotos)
+                        <img src="~/Images/@Html.DisplayFor(modelItem => item.Fotos)" alt="@Html.DisplayFor(modelItem => item.Fotos)" class="img-rounded">
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Precio)
