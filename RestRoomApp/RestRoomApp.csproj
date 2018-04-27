@@ -202,9 +202,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201804262021331_actualizar_modelo.cs" />
-    <Compile Include="Migrations\201804262021331_actualizar_modelo.Designer.cs">
-      <DependentUpon>201804262021331_actualizar_modelo.cs</DependentUpon>
+    <Compile Include="Migrations\201804262113147_Inicial.cs" />
+    <Compile Include="Migrations\201804262113147_Inicial.Designer.cs">
+      <DependentUpon>201804262113147_Inicial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -240,6 +240,10 @@
     <Content Include="Images\hotel_logo.png" />
     <Content Include="Images\kanban.gif" />
     <Content Include="Images\carousel1.png" />
+    <Content Include="Images\room1.jpg" />
+    <Content Include="Images\room2.jpg" />
+    <Content Include="Images\room3.jpg" />
+    <Content Include="Images\room4.jpg" />
     <Content Include="Images\rooms.gif" />
     <Content Include="Images\scrum.jpg" />
     <Content Include="Images\scrum2.jpg" />
@@ -255,6 +259,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\RestRoomAppXurcielagon - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -342,8 +347,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201804262021331_actualizar_modelo.resx">
-      <DependentUpon>201804262021331_actualizar_modelo.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201804262113147_Inicial.resx">
+      <DependentUpon>201804262113147_Inicial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

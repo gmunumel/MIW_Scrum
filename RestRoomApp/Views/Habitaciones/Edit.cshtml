@@ -64,6 +64,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Fotos, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
+                <img src="~/Images/@Html.DisplayFor(model => model.Fotos)" alt="@Html.DisplayFor(model => model.Fotos)" class="img-rounded">
                 @Html.EditorFor(model => model.Fotos, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Fotos, "", new { @class = "text-danger" })
             </div>
