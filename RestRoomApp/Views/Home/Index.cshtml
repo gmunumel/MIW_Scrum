@@ -1,6 +1,6 @@
 ﻿@{
     ViewBag.Title = "Home Page";
-    ViewBag.Message = "Contacta con nosotros.";
+    // ViewBag.Message = User.Identity.Name;
 }
 <br>
 <br>
@@ -68,7 +68,7 @@
 <!-- Wrap the rest of the page in another container to center all the content. -->
 
 @using Microsoft.AspNet.Identity
-@if (Request.IsAuthenticated && User.IsInRole("Admin"))
+@if (Request.IsAuthenticated && (User.Identity.Name == "admin@admin.com"))
 {
     <hr class="featurette-divider">
 
@@ -91,15 +91,15 @@
                 <p align="left">Este uso del término es opuesto al que tiene en el lenguaje coloquial, donde significa «hospedado» y ya no «hospedador». La palabra huésped procede del latín hospes (genitivo hospitis), que ya representaba entonces la misma pareja de significados contradictorios: «el que alberga» y «el que es albergado».​</p>
             </div>
             @*<div class="col-md-3 text-center">
-                <img class="img-rounded" src="~/Images/booking.gif" alt="Generic placeholder image" width="140" height="140">
-                <h2>@Html.ActionLink("Reservas", "Create", "Reservas", new { area = "" }, new { @class = "btn btn-lg btn-success btn-block" })</h2>
-                <p align="left">El término reserva puede referirse, en esta enciclopedia: a la guarda y custodia;​; a la excepción de una ley común;​; a la prevención o cautela para no descubrir lo que se piensa;. a la reserva mental, una alternativa moralmente aceptable a la mentira; jurídicamente, se considera un vicio de la voluntad;</p>
-            </div>
-            <div class="col-md-3 text-center">
-                <img class="img-rounded" src="~/Images/admin.png" alt="Generic placeholder image" width="140" height="140">
-                <h2>@Html.ActionLink("Administradores", "Index", "ReservasAdmin", new { area = "" }, new { @class = "btn btn-lg btn-success btn-block" })</h2>
-                <p align="left">Persona que administra bienes ajenos.</p>
-            </div>*@
+                    <img class="img-rounded" src="~/Images/booking.gif" alt="Generic placeholder image" width="140" height="140">
+                    <h2>@Html.ActionLink("Reservas", "Create", "Reservas", new { area = "" }, new { @class = "btn btn-lg btn-success btn-block" })</h2>
+                    <p align="left">El término reserva puede referirse, en esta enciclopedia: a la guarda y custodia;​; a la excepción de una ley común;​; a la prevención o cautela para no descubrir lo que se piensa;. a la reserva mental, una alternativa moralmente aceptable a la mentira; jurídicamente, se considera un vicio de la voluntad;</p>
+                </div>
+                <div class="col-md-3 text-center">
+                    <img class="img-rounded" src="~/Images/admin.png" alt="Generic placeholder image" width="140" height="140">
+                    <h2>@Html.ActionLink("Administradores", "Index", "ReservasAdmin", new { area = "" }, new { @class = "btn btn-lg btn-success btn-block" })</h2>
+                    <p align="left">Persona que administra bienes ajenos.</p>
+                </div>*@
             <div class="col-md-4 text-center">
                 <img class="img-rounded" src="~/Images/admin.png" alt="Generic placeholder image" width="140" height="140">
                 <h2>@Html.ActionLink("Reservas", "Index", "ReservasAdmin", new { area = "" }, new { @class = "btn btn-lg btn-success btn-block" })</h2>
